@@ -1,0 +1,23 @@
+name: freecad-export-action
+description: Export FreeCAD files
+
+inputs:
+  paths:
+    description: 'Newline separated list of paths to files (will be passed to Python glob.glob(recursive=True))'
+    required: true
+  output-path:
+    description: 'Output path'
+    required: false
+    default: '.'
+  export-types:
+    description: 'Newline separated list of file types to export as (default step)'
+    required: false
+    default: 'step'
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.paths }}
+    - ${{ inputs.output-path }}
+    - ${{ inputs.export-types }}
