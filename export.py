@@ -1,8 +1,12 @@
+import FreeCADGui
+print("Starting GUI")
+FreeCADGui.showMainWindow()
+
 from pathlib import Path
 from glob import glob
 import FreeCAD
-import FreeCADGui
 import Import
+import ImportGui
 import Mesh
 import os
 
@@ -12,8 +16,11 @@ def get_export_func(output):
         print("Using Mesh exporter")
         return Mesh.export
     elif suffix in ['.wrl', '.vrml', '.x3d']:
-        print("Using GUI exporter")
+        print("Using FreeCADGUI exporter")
         return FreeCADGui.export
+    elif suffix in ['.step']:
+        print("Using ImportGui exporter")
+        return ImportGui.export
     print("Using default exporter")
     return Import.export
 
@@ -45,9 +52,6 @@ def main(input_paths, output_path, export_types):
 
 
 print("Starting export script")
-
-print("Starting GUI")
-FreeCADGui.showMainWindow()
 
 print("Parsing args")
 input_paths = os.environ['FREECAD_INPUT_PATHS'].splitlines()
