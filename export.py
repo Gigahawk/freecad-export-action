@@ -141,7 +141,7 @@ def main(input_paths, output_path, export_types):
                 export_func = get_export_func(output)
                 export_func(root_objs, str(output))
 
-            print(f"Closing {input}")
+            print(f"Closing {input_path}")
             FreeCAD.closeDocument(doc.Name)
 
 
