@@ -87,6 +87,10 @@ def activate_kicad_wb():
     kicadstepup_prefs = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/kicadStepUp")
     kicadstepup_prefs.SetBool("checkUpdates", 0)
 
+    # Set correct 3dmodel paths
+    kicadstepup_prefs = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/kicadStepUpGui")
+    kicadstepup_prefs.SetString("prefix3d_1", "/usr/share/kicad/3dmodels")
+
     # Disable help warning (prevents blocking popups)
     import_prefs = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/Import")
     import_prefs.SetBool("help_warning_enabled", 0)
