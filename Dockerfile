@@ -1,4 +1,4 @@
-FROM ghcr.io/gigahawk/freecad-cli:0.19.4_2
+FROM ghcr.io/gigahawk/freecad-cli:0.20.1
 
 RUN \
     add-apt-repository --yes ppa:kicad/kicad-6.0-releases \
