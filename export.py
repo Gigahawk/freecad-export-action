@@ -98,6 +98,9 @@ def activate_kicad_wb():
     # Activate KiCadStepUp
     FreeCADGui.activateWorkbench("KiCadStepUpWB")
 
+    import SaveSettings
+    SaveSettings.update_ksuGui()
+
 def fake_infobox(parent, title, text, *args, **kwargs):
     print("info box shown")
     print(f"parent: {parent}")
